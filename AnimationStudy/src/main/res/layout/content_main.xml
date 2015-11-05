@@ -23,11 +23,18 @@
         android:text="Hello World!" />
 
     <Button
-        android:id="@+id/start_btn"
+        android:id="@+id/start_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="start" />
+        android:text="view_start" />
+
+    <Button
+        android:id="@+id/start_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_view"
+        android:text="property_start" />
 
     <Button
         android:id="@+id/stop_btn"

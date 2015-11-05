@@ -1,10 +1,14 @@
 package com.lastwarmth.animationstudy;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +19,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -22,16 +28,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.tv_show)
     TextView view;
-    @Bind(R.id.start_btn)
+    @Bind(R.id.start_view)
     Button startBtn;
     @Bind(R.id.stop_btn)
     Button stopBtn;
+    @Bind(R.id.start_property)
+    Button startProperty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Date now = new Date();
+        Log.i("time", now.getTime() + "");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startBtn.setOnClickListener(this);
         stopBtn.setOnClickListener(this);
         view.setOnClickListener(this);
+        startProperty.setOnClickListener(this);
     }
 
     @Override
@@ -75,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.start_btn:
+            case R.id.start_view:
 //                AlphaAnimation alpha = new AlphaAnimation(1.0f, 0f);
 //                alpha.setDuration(2000);
 //                view.startAnimation(alpha);
@@ -106,9 +117,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Animation animation = AnimationUtils.loadAnimation(this, R.anim.view_animation);
                 animation.setInterpolator(new LinearInterpolator());
                 view.startAnimation(animation);
-//                Animator animator = AnimatorInflater.loadAnimator(this, R.animator.view_animator);
-//                animator.setTarget(view);
-//                animator.start();
+                break;
+            case R.id.start_property:
+//                ValueAnimator anim = ValueAnimator.ofFloat(0f, 5f, 3f, 10f);
+//                anim.setDuration(300);
+//                anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                    @Override
+//                    public void onAnimationUpdate(ValueAnimator animation) {
+//                        float currentValue = (float) animation.getAnimatedValue();
+//                        Log.i("TAG", "cuurent value is " + currentValue);
+//                    }
+//                });
+//                anim.start();
+//                ObjectAnimator animator1 = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f, 0f);
+//                animator1.setDuration(3000);
+//                animator1.start();
+                ObjectAnimator moveIn = ObjectAnimator.ofFloat(view, "translationX", -500f, 0f);
+//                ObjectAnimator rotate = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f);
+//                ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f, 1f);
+//                AnimatorSet animSet = new AnimatorSet();
+//                animSet.play(rotate).with(fadeInOut).after(moveIn);
+//                animSet.setDuration(1000);
+//                animSet.addListener(new AnimatorListenerAdapter() {
+//
+//                });
+//                animSet.start();
+                Animator animator = AnimatorInflater.loadAnimator(this, R.animator.view_animator);
+                animator.setTarget(view);
+                animator.start();
+
                 break;
             case R.id.stop_btn:
                 view.clearAnimation();

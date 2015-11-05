@@ -1,0 +1,3 @@
+了解普通动画
+了解属性动画
+了解overridePendingTransition的用法
