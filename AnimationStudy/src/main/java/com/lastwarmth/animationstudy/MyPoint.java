@@ -19,7 +19,15 @@ public class MyPoint extends View {
 
     private Paint mPaint;
 
+    public MyPoint(Context context) {
+        super(context);
+    }
 
+    /**
+     * 若要使自定义View能够在xml中定义属性，则必须至少重写(Context context, AttributeSet attrs)的构造方法
+     * @param context
+     * @param attrs
+     */
     public MyPoint(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
