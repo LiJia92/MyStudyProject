@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -22,12 +23,25 @@ public class MyCustomView extends View implements View.OnClickListener{
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.i("TAG", "onMeasure......");
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.i("TAG", "onLayout......");
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         mPaint.setColor(Color.YELLOW);
         canvas.drawRect(0, 0, getWidth(), getHeight(), mPaint);
         mPaint.setColor(Color.BLUE);
         mPaint.setTextSize(20);
         canvas.drawText(mText + "", 0, getHeight() / 2, mPaint);
+        Log.i("TAG", "onDraw......");
     }
 
     @Override
