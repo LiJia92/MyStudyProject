@@ -1,10 +1,12 @@
 package com.lastwarmth.animationstudy;
 
+import android.animation.PointFEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,7 +17,7 @@ public class MyPoint extends View {
 
     public static final float RADIUS = 50f;
 
-    private Point currentPoint;
+    private PointF currentPoint;
 
     private Paint mPaint;
 
@@ -37,22 +39,22 @@ public class MyPoint extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         if (currentPoint == null) {
-            currentPoint = new Point(RADIUS, RADIUS);
-            canvas.drawCircle(currentPoint.getX(), currentPoint.getY(), RADIUS, mPaint);
+            currentPoint = new PointF(RADIUS, RADIUS);
+            canvas.drawCircle(currentPoint.x, currentPoint.y, RADIUS, mPaint);
             startAnimation();
         } else {
-            canvas.drawCircle(currentPoint.getX(), currentPoint.getY(), RADIUS, mPaint);
+            canvas.drawCircle(currentPoint.x, currentPoint.y, RADIUS, mPaint);
         }
     }
 
     private void startAnimation(){
-        Point startPoint = new Point(RADIUS, RADIUS);
-        Point endPoint = new Point(getWidth() - RADIUS, getHeight() - RADIUS);
-        ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);
+        PointF startPoint = new PointF(RADIUS, RADIUS);
+        PointF endPoint = new PointF(getWidth() - RADIUS, getHeight() - RADIUS);
+        ValueAnimator anim = ValueAnimator.ofObject(new PointFEvaluator(), startPoint, endPoint);
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                currentPoint = (Point) animation.getAnimatedValue();
+                currentPoint = (PointF) animation.getAnimatedValue();
                 invalidate();
             }
         });

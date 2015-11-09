@@ -1,7 +1,7 @@
 package com.lastwarmth.viewstudy;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,16 +34,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                AnimatorSet set = new AnimatorSet();
-                ObjectAnimator alpha = ObjectAnimator.ofFloat(imageView, "alpha", 0.5f, 1f);
-                ObjectAnimator scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 0, 1.2f, 1f);
-                ObjectAnimator scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 0, 1.2f, 1f);
-                ObjectAnimator translateX = ObjectAnimator.ofFloat(imageView, "translationX", 0, 500, 480);
-                ObjectAnimator translateY = ObjectAnimator.ofFloat(imageView, "translationY", 0, -500, -480);
-                ObjectAnimator rotate = ObjectAnimator.ofFloat(imageView, "rotation", 0, 1080);
-                set.playTogether(alpha, scaleX, scaleY, translateX, translateY, rotate);
-                set.setDuration(1000);
-                set.start();
+//                AnimatorSet set = new AnimatorSet();
+//                ObjectAnimator alpha = ObjectAnimator.ofFloat(imageView, "alpha", 0.5f, 1f);
+//                ObjectAnimator scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 0, 1.2f, 1f);
+//                ObjectAnimator scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 0, 1.2f, 1f);
+//                ObjectAnimator translateX = ObjectAnimator.ofFloat(imageView, "translationX", 0, 500);
+//                ObjectAnimator translateY = ObjectAnimator.ofFloat(imageView, "translationY", 0, -500);
+//                ObjectAnimator rotate = ObjectAnimator.ofFloat(imageView, "rotation", 0, 1080);
+                Animator animator = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.animator);
+                animator.setInterpolator(new OvershootInterpolator());
+                animator.setDuration(500);
+                animator.setTarget(imageView);
+                animator.start();
             }
         });
 
