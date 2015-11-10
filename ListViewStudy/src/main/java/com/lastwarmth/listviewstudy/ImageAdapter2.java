@@ -22,6 +22,9 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * 弱引用双向关联解决乱序问题
+ */
 public class ImageAdapter2 extends ArrayAdapter<String> {
 
     private Bitmap mLoadingBitmap;

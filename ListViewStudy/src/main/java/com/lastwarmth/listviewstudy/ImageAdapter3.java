@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 /**
+ * 第三方库解决乱序问题
  * Created by Administrator on 2015/11/9.
  */
 public class ImageAdapter3 extends ArrayAdapter<String> {

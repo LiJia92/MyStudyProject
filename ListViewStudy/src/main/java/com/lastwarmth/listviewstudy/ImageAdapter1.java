@@ -17,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
+ * findViewByTag()方式解决乱序问题
  * Created by Administrator on 2015/11/9.
  */
 public class ImageAdapter1 extends ArrayAdapter<String> {
