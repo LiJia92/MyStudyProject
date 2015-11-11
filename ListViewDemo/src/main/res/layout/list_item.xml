@@ -1,53 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.lastwarmth.listviewdemo.MyItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingBottom="8dp"
-    android:paddingTop="8dp">
+    android:orientation="horizontal">
 
-    <!--<de.hdodenhof.circleimageview.CircleImageView-->
-    <!--android:id="@+id/profile_image"-->
-    <!--android:layout_width="56dp"-->
-    <!--android:layout_height="56dp"-->
-    <!--android:src="@mipmap/lb_zjtx"-->
-    <!--app:civ_border_color="#FF000000"-->
-    <!--app:civ_border_width="1dp" />-->
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp">
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_marginLeft="16dp"-->
-    <!--android:orientation="vertical">-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/lb_zjtx"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="1dp" />
 
-    <!--<TextView-->
-    <!--android:id="@+id/group_name"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="群名称" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical">
 
-    <!--<TextView-->
-    <!--android:id="@+id/content"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:text="聊天内容" />-->
+            <TextView
+                android:id="@+id/group_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="群名称" />
 
-    <!--</LinearLayout>-->
+            <TextView
+                android:id="@+id/qq_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="聊天内容" />
 
-    <TextView
-        android:layout_width="1080px"
-        android:layout_height="100dp"
-        android:layout_marginLeft="0dp"
-        android:text="test" />
+        </LinearLayout>
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/delete"
-        android:layout_width="96dp"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/me_zixun" />
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="168dp"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/to_top"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="置顶" />
+
+        <TextView
+            android:id="@+id/had_read"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="已读" />
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="删除" />
+    </LinearLayout>
+
+</com.lastwarmth.listviewdemo.MyItemLayout>

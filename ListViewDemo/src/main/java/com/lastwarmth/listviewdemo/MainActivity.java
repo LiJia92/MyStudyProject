@@ -1,10 +1,10 @@
 package com.lastwarmth.listviewdemo;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private int screenWidth;
     private int screenHeight;
+    private LinearLayout contentView;
+    LinearLayout.LayoutParams lp;
+
+    private Handler myHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            contentView.setLayoutParams(lp);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +65,38 @@ public class MainActivity extends AppCompatActivity {
                 int measuredWidth1 = view.getMeasuredWidth();
                 Log.i("width", "width1=" + width1 + "   measuredWidth1=" + measuredWidth1);
                 Toast.makeText(mContext, ((MyModel) myAdapter.getItem(position)).getGroupName(), Toast.LENGTH_SHORT).show();
-                ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationX", 0f, -100f);
-                animator.setDuration(1000);
-                animator.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        int width2 = view.getWidth();
-                        int measuredWidth2 = view.getMeasuredWidth();
-                        Log.i("width", "width2=" + width2 + "   measuredWidth1=" + measuredWidth2);
-                    }
-                });
-                animator.start();
+//                ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationX", 0f, -100f);
+//                animator.setDuration(1000);
+//                animator.addListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+//                        int width2 = view.getWidth();
+//                        int measuredWidth2 = view.getMeasuredWidth();
+//                        Log.i("width", "width2=" + width2 + "   measuredWidth1=" + measuredWidth2);
+//
+//                    }
+//                });
+//                animator.start();
+//                contentView = (LinearLayout) view.findViewById(R.id.content);
+//                lp = (LinearLayout.LayoutParams) contentView.getLayoutParams();
+//                lp.width = width1;
+////                new MyUpdateTask().execute();
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        int left = 0;
+//                        while (left > -200) {
+//                            left -= 10;
+//                            lp.leftMargin = left;
+//                            myHandler.sendEmptyMessage(0);
+//                            try {
+//                                Thread.sleep(20);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }
+//                }).start();
             }
         });
         DisplayMetrics dm = new DisplayMetrics();
@@ -131,6 +163,37 @@ public class MainActivity extends AppCompatActivity {
         data.add(model18);
         data.add(model19);
         data.add(model20);
+    }
+
+    private class MyUpdateTask extends AsyncTask<Void, Integer, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            int leftMargin = 0;
+            while (leftMargin > -200) {
+                leftMargin = leftMargin - 10;
+                publishProgress(leftMargin);
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            lp.leftMargin = values[0];
+            contentView.setLayoutParams(lp);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lp.leftMargin = -200;
+            contentView.setLayoutParams(lp);
+        }
     }
 
     @Override

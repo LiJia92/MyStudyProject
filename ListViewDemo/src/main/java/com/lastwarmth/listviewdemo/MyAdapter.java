@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -44,34 +45,35 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view;
+    public View getView(final int position, View convertView, final ViewGroup parent) {
+        final View view;
         ViewHolder holder;
         if (convertView == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
             holder = new ViewHolder();
-//            holder.imageView = (CircleImageView) view.findViewById(R.id.profile_image);
-//            holder.groupName = (TextView) view.findViewById(R.id.group_name);
-//            holder.content = (TextView) view.findViewById(R.id.content);
-            holder.delete = (ImageView) view.findViewById(R.id.delete);
+            holder.imageView = (CircleImageView) view.findViewById(R.id.profile_image);
+            holder.groupName = (TextView) view.findViewById(R.id.group_name);
+            holder.content = (TextView) view.findViewById(R.id.qq_content);
+            holder.delete = (TextView) view.findViewById(R.id.delete);
             view.setTag(holder);
         } else {
             view = convertView;
             holder = (ViewHolder) view.getTag();
         }
         MyModel myModel = (MyModel) getItem(position);
-//        holder.groupName.setText(myModel.getGroupName());
-//        holder.content.setText(myModel.getContent());
-//        Glide.with(mContext)
-//                .load(myModel.getImageUrl())
-//                .centerCrop()
-//                .placeholder(R.mipmap.lb_zjtx)
-//                .crossFade()
-//                .into(holder.imageView);
+        holder.groupName.setText(myModel.getGroupName());
+        holder.content.setText(myModel.getContent());
+        Glide.with(mContext)
+                .load(myModel.getImageUrl())
+                .centerCrop()
+                .placeholder(R.mipmap.lb_zjtx)
+                .crossFade()
+                .into(holder.imageView);
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                data.remove(position);
+                notifyDataSetChanged();
             }
         });
         return view;
@@ -81,6 +83,6 @@ public class MyAdapter extends BaseAdapter {
         CircleImageView imageView;
         TextView groupName;
         TextView content;
-        ImageView delete;
+        TextView delete;
     }
 }
