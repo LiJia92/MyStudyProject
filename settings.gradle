@@ -1,1 +1,1 @@
-include ':AnimationStudy', ':ViewStudy', ':ListViewStudy', ':ListViewDemo'
+include ':AnimationStudy', ':ViewStudy', ':ListViewStudy', ':ListViewDemo', ':TouchEventStudy'
