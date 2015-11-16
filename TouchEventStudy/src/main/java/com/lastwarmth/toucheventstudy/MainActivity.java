@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,81 +29,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MyTextView myTextView = (MyTextView) findViewById(R.id.text);
-        myTextView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                Log.i("MyTextView", "onTouch " + event.getAction());
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        return false;
-                    case MotionEvent.ACTION_MOVE:
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        return false;
-                    default:
-                        return true;
-                }
-            }
-        });
+//        MyTextView myTextView = (MyTextView) findViewById(R.id.text);
+//        myTextView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                int action = event.getAction();
+//                Log.i("MyTextView", "onTouch " + event.getAction());
+//                switch (action) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        return true;
+//                    case MotionEvent.ACTION_MOVE:
+//                        return false;
+//                    case MotionEvent.ACTION_UP:
+//                        return false;
+//                    default:
+//                        return true;
+//                }
+//            }
+//        });
+//
+//        MyButton myButton = (MyButton) findViewById(R.id.my_button);
+//        myButton.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                int action = event.getAction();
+//                Log.i("MyButton", "onTouch " + event.getAction());
+//                switch (action) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        return false;
+//                    case MotionEvent.ACTION_MOVE:
+//                        return false;
+//                    case MotionEvent.ACTION_UP:
+//                        return false;
+//                    default:
+//                        return true;
+//                }
+//            }
+//        });
 
-        MyButton myButton = (MyButton) findViewById(R.id.my_button);
-        myButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                Log.i("MyButton", "onTouch " + event.getAction());
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        return false;
-                    case MotionEvent.ACTION_MOVE:
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        return false;
-                    default:
-                        return true;
-                }
-            }
-        });
+    }
 
-        Button sysButton = (Button) findViewById(R.id.sys_button);
-        sysButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                Log.i("SysButton", "onTouch " + event.getAction());
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        return false;
-                    case MotionEvent.ACTION_MOVE:
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        return false;
-                    default:
-                        return true;
-                }
-            }
-        });
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.i("MainActivity", "dispatchTouchEvent");
+        return super.dispatchTouchEvent(ev);
+    }
 
-        TextView sysTextView = (TextView) findViewById(R.id.sys_text);
-        sysTextView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                Log.i("SysTextView", "onTouch " + event.getAction());
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        return false;
-                    default:
-                        return true;
-                }
-            }
-        });
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.i("MainActivity", "onTouchEvent");
+        return super.onTouchEvent(event);
     }
 
     @Override

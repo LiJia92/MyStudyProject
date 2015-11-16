@@ -15,19 +15,26 @@ public class MyTextView extends TextView {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        Log.i("MyTextView", "dispatchTouchEvent");
+        return super.dispatchTouchEvent(event);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int action = event.getAction();
-        Log.i("MyTextView", "onTouchEvent " + event.getAction());
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                return false;
-            case MotionEvent.ACTION_UP:
-                return false;
-            default:
-                return true;
-        }
+        Log.i("MyTextView", "onTouchEvent");
+//        int action = event.getAction();
+//        switch (action) {
+//            case MotionEvent.ACTION_DOWN:
+//                return true;
+//            case MotionEvent.ACTION_MOVE:
+//                return false;
+//            case MotionEvent.ACTION_UP:
+//                return false;
+//            default:
+//                return true;
+//        }
+        return super.onTouchEvent(event);
     }
 
 }

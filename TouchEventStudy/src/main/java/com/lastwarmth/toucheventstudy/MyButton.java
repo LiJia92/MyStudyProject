@@ -16,22 +16,29 @@ public class MyButton extends Button {
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        boolean flag = this.isClickable();
-        int action = event.getAction();
-        Log.i("MyButton", "onTouchEvent " + event.getAction() + "---" + flag);
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        Log.i("MyButton", "dispatchTouchEvent");
+        return super.dispatchTouchEvent(event);
+    }
 
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                super.onTouchEvent(event);
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                return false;
-            case MotionEvent.ACTION_UP:
-                super.onTouchEvent(event);
-                return false;
-            default:
-                return true;
-        }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+//        boolean flag = this.isClickable();
+//        int action = event.getAction();
+        Log.i("MyButton", "onTouchEvent");
+
+//        switch (action) {
+//            case MotionEvent.ACTION_DOWN:
+//                super.onTouchEvent(event);
+//                return true;
+//            case MotionEvent.ACTION_MOVE:
+//                return false;
+//            case MotionEvent.ACTION_UP:
+//                super.onTouchEvent(event);
+//                return false;
+//            default:
+//                return true;
+//        }
+        return super.onTouchEvent(event);
     }
 }

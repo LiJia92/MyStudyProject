@@ -12,30 +12,24 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <com.lastwarmth.toucheventstudy.MyTextView
-        android:id="@+id/text"
+    <com.lastwarmth.toucheventstudy.MyViewGroup
+        android:id="@+id/my_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_height="wrap_content">
 
-    <com.lastwarmth.toucheventstudy.MyButton
-        android:id="@+id/my_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:text="my_button" />
+        <com.lastwarmth.toucheventstudy.MyTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!" />
 
-    <Button
-        android:id="@+id/sys_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/my_button"
-        android:text="sys_button" />
+        <com.lastwarmth.toucheventstudy.MyButton
+            android:id="@+id/my_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_group"
+            android:text="my_button" />
 
-    <TextView
-        android:id="@+id/sys_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sys_button"
-        android:text="Hello World!sys" />
+    </com.lastwarmth.toucheventstudy.MyViewGroup>
+
 </RelativeLayout>
