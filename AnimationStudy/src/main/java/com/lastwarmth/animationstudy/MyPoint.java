@@ -1,5 +1,7 @@
 package com.lastwarmth.animationstudy;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.PointFEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -57,6 +59,9 @@ public class MyPoint extends View {
                 currentPoint = (PointF) animation.getAnimatedValue();
                 invalidate();
             }
+        });
+        anim.addListener(new AnimatorListenerAdapter() {
+
         });
         anim.setDuration(5000);
         anim.start();
