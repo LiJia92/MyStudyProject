@@ -1,7 +1,5 @@
 package com.lastwarmth.viewstudy;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
-import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 //
 //    private List<String> contentList = new ArrayList<>();
 
+    private MyRefreshView refresh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final ImageView imageView = (ImageView) findViewById(R.id.plus);
+        refresh = (MyRefreshView) findViewById(R.id.refresh);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +39,12 @@ public class MainActivity extends AppCompatActivity {
 //                ObjectAnimator translateX = ObjectAnimator.ofFloat(imageView, "translationX", 0, 500);
 //                ObjectAnimator translateY = ObjectAnimator.ofFloat(imageView, "translationY", 0, -500);
 //                ObjectAnimator rotate = ObjectAnimator.ofFloat(imageView, "rotation", 0, 1080);
-                Animator animator = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.animator);
-                animator.setInterpolator(new OvershootInterpolator());
-                animator.setDuration(500);
-                animator.setTarget(imageView);
-                animator.start();
+//                Animator animator = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.animator);
+//                animator.setInterpolator(new OvershootInterpolator());
+//                animator.setDuration(200);
+//                animator.setTarget(imageView);
+//                animator.start();
+                refresh.startAnimation();
             }
         });
 
@@ -107,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            refresh.stopAnimation();
             return true;
         }
 

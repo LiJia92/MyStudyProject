@@ -106,22 +106,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("width", "screenWidth=" + screenWidth);
     }
 
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
-
-    /**
-     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
-     */
-    public static int px2dip(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
-
     private void initData() {
         MyModel model1 = new MyModel("http://img.my.csdn.net/uploads/201508/05/1438760758_3497.jpg", "1", "111");
         MyModel model2 = new MyModel("http://img.my.csdn.net/uploads/201508/05/1438760758_6667.jpg", "2", "222");

@@ -29,22 +29,10 @@
     <!--android:layout_height="wrap_content"-->
     <!--android:layout_below="@+id/custome_view"/>-->
 
-    <ImageView
-        android:id="@+id/plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:src="@mipmap/plus" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/custome_view"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/public_01"
-        android:text="hahahaha" />
-
+    <com.lastwarmth.viewstudy.MyRefreshView
+        android:id="@+id/refresh"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
