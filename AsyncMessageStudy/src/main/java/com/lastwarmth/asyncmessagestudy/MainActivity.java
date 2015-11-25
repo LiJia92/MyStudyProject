@@ -1,5 +1,7 @@
 package com.lastwarmth.asyncmessagestudy;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,11 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,15 +63,18 @@ public class MainActivity extends AppCompatActivity {
                 Looper.loop();
             }
         }).start();
+        final Context context = this;
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                handler1.sendEmptyMessage(1000);
 //                handler2.sendEmptyMessage(1000);
-                Callable<Boolean> myCall = new MyCallable();
-                myTask = new FutureTask<>(myCall);
-                new Thread(myTask).start();
+//                Callable<Boolean> myCall = new MyCallable();
+//                myTask = new FutureTask<>(myCall);
+//                new Thread(myTask).start();
+                Intent intent = new Intent(context, SecondActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -93,14 +95,14 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            try {
-                Boolean result = myTask.get();
-                Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Boolean result = myTask.get();
+//                Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            } catch (ExecutionException e) {
+//                e.printStackTrace();
+//            }
             return true;
         }
 
