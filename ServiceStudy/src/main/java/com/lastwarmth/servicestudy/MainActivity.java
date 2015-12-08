@@ -86,11 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.start:
-                Intent startIntent = new Intent(this, MyIntentService.class);
+                Intent startIntent = new Intent(this, MyService.class);
                 startService(startIntent);
                 break;
             case R.id.stop:
-                Intent stopIntent = new Intent(this, MyIntentService.class);
+                Intent stopIntent = new Intent(this, MyService.class);
                 stopService(stopIntent);
                 break;
             case R.id.bind:

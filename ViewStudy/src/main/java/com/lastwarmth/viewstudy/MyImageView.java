@@ -20,9 +20,13 @@ public class MyImageView extends ImageView {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.RED);
         canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, getMeasuredHeight() / 2, mPaint);
-        super.onDraw(canvas);
     }
 }

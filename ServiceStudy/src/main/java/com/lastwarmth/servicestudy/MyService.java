@@ -34,11 +34,11 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d("TAG", "onCreate() executed");
-        try {
-            Thread.sleep(60000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(60000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -55,7 +55,7 @@ public class MyService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        Log.d("TAG", "onDestroy() onUnbind");
+        Log.d("TAG", "onUnbind() executed");
         return super.onUnbind(intent);
     }
 }

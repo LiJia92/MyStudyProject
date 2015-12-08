@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        refresh = (MyRefreshView) findViewById(R.id.refresh);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 //                animator.setDuration(200);
 //                animator.setTarget(imageView);
 //                animator.start();
-                refresh.startAnimation();
             }
         });
 

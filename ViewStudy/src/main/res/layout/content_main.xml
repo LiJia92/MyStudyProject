@@ -29,7 +29,7 @@
     <!--android:layout_height="wrap_content"-->
     <!--android:layout_below="@+id/custome_view"/>-->
 
-    <com.lastwarmth.viewstudy.MyRefreshView
+    <com.lastwarmth.viewstudy.MyImageView
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
