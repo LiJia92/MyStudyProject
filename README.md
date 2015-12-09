@@ -46,3 +46,20 @@ ViewStudy Model
     </item>
 
 </layer-list>
+
+---
+GC_FOR_ALLOC freed 6346K, 7% free , paused 143ms, total 143ms</br>
+This is not an error, but an information that Garbage collector has run.
+
+If you are seeing a lot of those, it might mean that you are making many allocations or have little memory. You should try to improve your program's memory performance.
+
+There is a good source information about investigating RAM consumption in Android:
+
+https://developer.android.com/tools/debugging/debugging-memory.html
+
+There is also a document about general strategies for managing your memory consumption in Android:
+
+http://developer.android.com/training/articles/memory.html
+
+05-12 11:51:06.581: I/Choreographer(6837): Skipped 392 frames! The application may be doing too much work on its main thread.
+Well, you are doing some heavy processing in your Activity thread. You need profile your application and probably move some code to a separate thread or to a service.
