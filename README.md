@@ -26,7 +26,7 @@ int height = dm.heightPixels;
    android:layout_marginTop="3dp"
    android:isIndicator="true"
    android:numStars="5"
-   android:progressDrawable="@drawable/score_rating_sel" /> <br>
+   android:progressDrawable="@drawable/score_rating_sel" />
 
 ViewStudy Model
 <?xml version="1.0" encoding="UTF-8"?>
