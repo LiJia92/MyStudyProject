@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="unspecified"><source path="D:\Android\AndroidStudioProjects\MyStudyProject\sample\build\intermediates\exploded-aar\MyStudyProject\library\unspecified\assets"/></dataSet><dataSet config="main"><source path="D:\Android\AndroidStudioProjects\MyStudyProject\sample\src\main\assets"/></dataSet><dataSet config="debug"><source path="D:\Android\AndroidStudioProjects\MyStudyProject\sample\src\debug\assets"/></dataSet></merger>
