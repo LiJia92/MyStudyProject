@@ -7,3 +7,4 @@
 *.iml
 library/build
 sample/build
+*/build

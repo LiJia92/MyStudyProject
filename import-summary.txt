@@ -16,19 +16,8 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
-From library:
-* pom.xml
-From sample:
-* logo.png
-* pom.xml
-* psd\
-* psd\icon_hdpi.psd
-* psd\icon_mdpi.psd
-* psd\icon_xhdpi.psd
-* psd\logo.psd
-* psd\web.psd
-* screens.png
-* web.png
+* ic_launcher-web.png
+* proguard-project.txt
 
 Replaced Jars with Dependencies:
 --------------------------------
@@ -47,28 +36,10 @@ Moved Files:
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-In library:
-* AndroidManifest.xml => library\src\main\AndroidManifest.xml
-* res\ => library\src\main\res\
-* src\ => library\src\main\java\
-In sample:
-* AndroidManifest.xml => sample\src\main\AndroidManifest.xml
-* res\ => sample\src\main\res\
-* src\ => sample\src\main\java\
-
-Missing Android Support Repository:
------------------------------------
-Some useful libraries, such as the Android Support Library, are
-installed from a special Maven repository, which should be installed
-via the SDK manager.
-
-It looks like this library is missing from your SDK installation at:
-null
-
-To install it, open the SDK manager, and in the Extras category,
-select "Android Support Repository". You may also want to install the
-"Google Repository" if you want to use libraries like Google Play
-Services.
+* AndroidManifest.xml => viewPageIndicator\src\main\AndroidManifest.xml
+* assets\ => viewPageIndicator\src\main\assets
+* res\ => viewPageIndicator\src\main\res\
+* src\ => viewPageIndicator\src\main\java\
 
 Next Steps:
 -----------
