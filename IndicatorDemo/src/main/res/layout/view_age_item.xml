@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Jaceli"
+            android:text="@string/info"
             android:textSize="18sp" />
     </LinearLayout>
 

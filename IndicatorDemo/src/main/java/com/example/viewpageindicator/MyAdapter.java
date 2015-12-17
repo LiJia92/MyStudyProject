@@ -29,7 +29,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-        holder.getTextView().setText(data[position]);
+        holder.getTextView1().setText(data[position]);
+        holder.getmTextView2().setText(mContext.getResources().getString(R.string.info, "李佳", "Mia"));
     }
 
     @Override
@@ -42,16 +43,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTextView;
+        private TextView mTextView1;
+        private TextView mTextView2;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mTextView = (TextView) itemView.findViewById(R.id.my_text1);
-            mTextView.setTag(this);
+            mTextView1 = (TextView) itemView.findViewById(R.id.my_text1);
+            mTextView2 = (TextView) itemView.findViewById(R.id.my_text2);
         }
 
-        public TextView getTextView() {
-            return mTextView;
+        public TextView getTextView1() {
+            return mTextView1;
+        }
+
+        public TextView getmTextView2() {
+            return mTextView2;
         }
     }
 }
