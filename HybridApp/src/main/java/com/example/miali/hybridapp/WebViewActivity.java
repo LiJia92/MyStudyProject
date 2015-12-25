@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.webkit.JavascriptInterface;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 /**
@@ -35,16 +37,32 @@ public class WebViewActivity extends Activity {
         // 载入assets目录下的一个页面
         webView.loadUrl("file:///android_asset/hello.html");
         // 添加交互接口
-        webView.addJavascriptInterface(new Object() {
-            @JavascriptInterface
-            public void clickOnAndroid() {
-                Toast.makeText(mContext, "Hello Hybrid.", Toast.LENGTH_SHORT).show();
-                mHandler.post(new Runnable() {
-                    public void run() {
-                        webView.loadUrl("javascript:hello()");
-                    }
-                });
+//        webView.addJavascriptInterface(new Object() {
+//            @JavascriptInterface
+//            public void clickOnAndroid() {
+//                Toast.makeText(mContext, "Hello Hybrid.", Toast.LENGTH_SHORT).show();
+//                mHandler.post(new Runnable() {
+//                    public void run() {
+//                        webView.loadUrl("javascript:hello()");
+//                    }
+//                });
+//            }
+//        }, "demo");
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Toast.makeText(mContext, url, Toast.LENGTH_SHORT).show();
+                return super.shouldOverrideUrlLoading(view, url);
             }
-        }, "demo");
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+                Toast.makeText(mContext, url, Toast.LENGTH_SHORT).show();
+                result.confirm("");
+                return true;
+            }
+        });
     }
 }
