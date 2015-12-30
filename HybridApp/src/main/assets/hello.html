@@ -12,6 +12,24 @@
     function responseCallback(responseData){
         document.getElementById("demo1").innerHTML += responseData;
     }
+
+    var param = {
+                   "currentMusicId":"1",
+                   "music":[{
+                       "id": "1",
+                       "uID": "1",
+                       "spaceID": "1",
+                       "fileID": "111",
+                       "title": "丽江小倩 原创 不见",
+                       "summary": "请输入简介",
+                       "cover": "110",
+                       "addtime": "1450243000",
+                       "status": "1",
+                       "singer": "丽江小倩",
+                       "songUrl": "http://miadata1.ufile.ucloud.cn/guitar/111.mp3",
+                       "coverUrl": "http://miadata1.ufile.ucloud.cn/guitar/110.jpg"
+                   }]
+               };
     </script>
 </head>
 <body>
@@ -27,7 +45,7 @@
 </br>
 </br>
 </br>
-<a href="#" onclick="bridge.send({'cmd':'getToken', 'data':{}})">不传入回调但回调初始化的回调</a>
+<a href="#" onclick="bridge.send({'cmd':'getToken', 'data':param})">不传入回调但回调初始化的回调</a>
 </br>
 </br>
 </br>

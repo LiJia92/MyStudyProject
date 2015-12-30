@@ -1,8 +1,10 @@
 package com.example.miali.hybridapp;
 
+import android.util.Log;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,6 +41,7 @@ public class MyBridge {
     public static void send(WebView webView, JSONObject jsonObject) {
         try {
             String method = jsonObject.getString("cmd");
+            JSONObject data = jsonObject.getJSONObject("data");
             String token;
             switch (method) {
                 case "getToken":
@@ -46,6 +49,9 @@ public class MyBridge {
                     Toast.makeText(webView.getContext(), token, Toast.LENGTH_SHORT).show();
                     break;
             }
+            String count = data.getString("currentMusicId");
+            Log.e("TAG", count);
+            JSONArray music = data.getJSONArray("music");
             JavaFunction.jsCallback.apply();
         } catch (JSONException e) {
             e.printStackTrace();
