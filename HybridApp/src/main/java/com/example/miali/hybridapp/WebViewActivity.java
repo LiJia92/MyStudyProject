@@ -1,12 +1,13 @@
 package com.example.miali.hybridapp;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import cn.pedant.SafeWebViewBridge.InjectedChromeClient;
 
 /**
  * Created by Lijia on 2015-12-25.
@@ -17,7 +18,6 @@ public class WebViewActivity extends Activity {
     private Context mContext;
     private Handler mHandler = new Handler();
 
-    @SuppressLint("JavascriptInterface")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +30,11 @@ public class WebViewActivity extends Activity {
         WebSettings ws = webView.getSettings();
         // 启用JavaScript
         ws.setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new InjectedChromeClient("bridge", MyBridge.class));
         // 载入assets目录下的一个页面
         webView.loadUrl("file:///android_asset/hello.html");
         // 添加交互接口
-        webView.addJavascriptInterface(new AndroidJavascriptBridge(mContext, webView), "demo");
+//        webView.addJavascriptInterface(new AndroidJavascriptBridge(mContext, webView), "demo");
 //        webView.addJavascriptInterface(new Object() {
 //            @JavascriptInterface
 //            public void clickOnAndroid() {
