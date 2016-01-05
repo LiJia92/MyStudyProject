@@ -21,6 +21,11 @@
 
         <service android:name=".MyService" />
         <service android:name=".MyIntentService" />
+
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/title_activity_second"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
