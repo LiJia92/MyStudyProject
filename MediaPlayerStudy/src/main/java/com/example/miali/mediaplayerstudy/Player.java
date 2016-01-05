@@ -21,9 +21,9 @@ public class Player implements MediaPlayer.OnBufferingUpdateListener,
     private Timer mTimer = new Timer();
 
 
-    private String[] urls = {"http://10.0.0.36:8080/MiaMusic/Aimer%20-%20LAST%20STARDUST.mp3",
-            "http://10.0.0.36:8080/MiaMusic/Aimer%20-%20Brave%20Shine.mp3",
-            "http://10.0.0.36:8080/MiaMusic/blandness.mp3"};
+    private String[] urls = {"http://10.0.0.3:8080/MiaMusic/Aimer%20-%20LAST%20STARDUST.mp3",
+            "http://10.0.0.3:8080/MiaMusic/Aimer%20-%20Brave%20Shine.mp3",
+            "http://10.0.0.3:8080/MiaMusic/blandness.mp3"};
     private int currentMusic = 0;
 
     public Player(SeekBar skbProgress) {

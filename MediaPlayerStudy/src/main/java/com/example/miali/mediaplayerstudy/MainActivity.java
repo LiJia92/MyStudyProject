@@ -20,20 +20,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.setTitle("在线音乐播放---hellogv编写");
-
-        btnPlayUrl = (Button) this.findViewById(R.id.btnPlayUrl);
-        btnPlayUrl.setOnClickListener(new ClickEvent());
-
-        btnPause = (Button) this.findViewById(R.id.btnPause);
-        btnPause.setOnClickListener(new ClickEvent());
-
-        btnStop = (Button) this.findViewById(R.id.btnStop);
-        btnStop.setOnClickListener(new ClickEvent());
-
-        skbProgress = (SeekBar) this.findViewById(R.id.skbProgress);
-        skbProgress.setOnSeekBarChangeListener(new SeekBarChangeEvent());
-        player = new Player(skbProgress);
+//        this.setTitle("在线音乐播放---hellogv编写");
+//
+//        btnPlayUrl = (Button) this.findViewById(R.id.btnPlayUrl);
+//        btnPlayUrl.setOnClickListener(new ClickEvent());
+//
+//        btnPause = (Button) this.findViewById(R.id.btnPause);
+//        btnPause.setOnClickListener(new ClickEvent());
+//
+//        btnStop = (Button) this.findViewById(R.id.btnStop);
+//        btnStop.setOnClickListener(new ClickEvent());
+//
+//        skbProgress = (SeekBar) this.findViewById(R.id.skbProgress);
+//        skbProgress.setOnSeekBarChangeListener(new SeekBarChangeEvent());
+//        player = new Player(skbProgress);
 
     }
 
