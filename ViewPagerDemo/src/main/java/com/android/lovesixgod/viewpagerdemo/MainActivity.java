@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        viewPager.setClipToPadding(false);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setPageMargin(48);
         MyOnPageChangeListener myOnPageChangeListener = new MyOnPageChangeListener();
