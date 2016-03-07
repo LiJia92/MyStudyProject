@@ -44,9 +44,10 @@ public class ViewDragHelperLayout extends LinearLayout {
             public int clampViewPositionHorizontal(View child, int left, int dx) {
                 // paddingLeft <= 横向移动的位置 <= getWidth - dragView.getWidth - paddingRight
                 int leftBound = getPaddingLeft();
-                int rightBound = getWidth() - viewDragHelper.getCapturedView().getWidth() - getPaddingRight();
+                int rightBound = getWidth() - child.getWidth() - getPaddingRight();
 
                 return Math.min(Math.max(left, leftBound), rightBound);
+//                return left;
             }
 
             /**
@@ -61,9 +62,10 @@ public class ViewDragHelperLayout extends LinearLayout {
             public int clampViewPositionVertical(View child, int top, int dy) {
                 // paddingTop <= 纵向移动的位置 <= getHeight - dragView.getHeight - paddingBottom
                 int topBound = getPaddingTop();
-                int bottomBound = getHeight() - viewDragHelper.getCapturedView().getHeight() - getPaddingBottom();
+                int bottomBound = getHeight() - child.getHeight() - getPaddingBottom();
 
                 return Math.min(Math.max(top, topBound), bottomBound);
+//                return top;
             }
 
             @Override
@@ -85,6 +87,15 @@ public class ViewDragHelperLayout extends LinearLayout {
                 viewDragHelper.captureChildView(third, pointerId);
             }
 
+            @Override
+            public int getViewHorizontalDragRange(View child) {
+                return getMeasuredWidth() - child.getMeasuredWidth();
+            }
+
+            @Override
+            public int getViewVerticalDragRange(View child) {
+                return getMeasuredHeight() - child.getMeasuredHeight();
+            }
         });
 
         viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_RIGHT); // 设置边界检查

@@ -16,6 +16,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="#44ff0000"
+        android:clickable="true"
         android:gravity="center"
         android:text="I can be dragged !" />
 
@@ -25,6 +26,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="#44c0ffff"
+        android:clickable="true"
         android:gravity="center"
         android:text="I will be back to origin pos !" />
 
@@ -34,6 +36,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="#44cecece"
+        android:clickable="true"
         android:gravity="center"
         android:text="use edge tracker to operate me" />
 
