@@ -4,10 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="32dp"
-    android:paddingTop="32dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
@@ -16,7 +12,6 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="#44ff0000"
-        android:clickable="true"
         android:gravity="center"
         android:text="I can be dragged !" />
 
@@ -25,8 +20,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="#44c0ffff"
-        android:clickable="true"
+        android:background="#4400fff0"
         android:gravity="center"
         android:text="I will be back to origin pos !" />
 
@@ -35,9 +29,8 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="#44cecece"
-        android:clickable="true"
+        android:background="#44c0ffff"
         android:gravity="center"
-        android:text="use edge tracker to operate me" />
+        android:text="Use edge tracker to operate me !" />
 
 </com.android.lovesixgod.viewdraghelper.ViewDragHelperLayout>
