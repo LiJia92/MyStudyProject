@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        DashboardView view = (DashboardView) findViewById(R.id.dashboard_view);
+        view.setNum(350);
+
 //        RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent);
 //        LayoutInflater inflater = LayoutInflater.from(this);
 //        View button = inflater.inflate(R.layout.button_layout, parent, false);
