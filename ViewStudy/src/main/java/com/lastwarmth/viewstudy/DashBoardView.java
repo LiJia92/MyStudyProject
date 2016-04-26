@@ -18,7 +18,7 @@ import android.view.View;
  */
 public class DashboardView extends View {
 
-    private Paint mPanit;
+    private Paint mPaint;
     private RectF rectF;
     private Shader mShader;
 
@@ -43,7 +43,7 @@ public class DashboardView extends View {
     }
 
     private void init() {
-        mPanit = new Paint();
+        mPaint = new Paint();
         rectF = new RectF();
         mShader = new RadialGradient(0, 0, (1080 - 300) / 2, 0xffde5669, 0xffe79950, Shader.TileMode.MIRROR);
     }
@@ -72,47 +72,47 @@ public class DashboardView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mPanit.reset();
-        mPanit.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPanit.setColor(Color.GRAY);
-        mPanit.setStrokeWidth(40);
-        mPanit.setStyle(Paint.Style.STROKE);
-        mPanit.setStrokeCap(Paint.Cap.ROUND);
+        mPaint.reset();
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.GRAY);
+        mPaint.setStrokeWidth(40);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
         rectF.top = getMeasuredHeight() / 2 - getMeasuredWidth() / 4;
         rectF.left = getMeasuredWidth() / 4;
         rectF.right = getWidth() / 4 * 3;
         rectF.bottom = getMeasuredHeight() / 2 + getMeasuredWidth() / 4;
-        canvas.drawArc(rectF, 140, 260, false, mPanit);
+        canvas.drawArc(rectF, 140, 260, false, mPaint);
 
-        mPanit.reset();
-        mPanit.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPanit.setColor(Color.GRAY);
-        mPanit.setStrokeWidth(3);
-        canvas.drawLine(getMeasuredWidth() / 2, rectF.top + 40, getMeasuredWidth() / 2, rectF.top + 60, mPanit);
+        mPaint.reset();
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.GRAY);
+        mPaint.setStrokeWidth(3);
+        canvas.drawLine(getMeasuredWidth() / 2, rectF.top + 40, getMeasuredWidth() / 2, rectF.top + 60, mPaint);
         for (int i = 0; i < 26; i++) {
             int degrees = (int) (10 * (i + 1) * Math.pow(-1, i));
             canvas.rotate(degrees, getWidth() / 2, getHeight() / 2);
-            canvas.drawLine(getMeasuredWidth() / 2, rectF.top + 40, getMeasuredWidth() / 2, rectF.top + 60, mPanit);
+            canvas.drawLine(getMeasuredWidth() / 2, rectF.top + 40, getMeasuredWidth() / 2, rectF.top + 60, mPaint);
         }
         canvas.rotate(130, getWidth() / 2, getHeight() / 2);
 
-        mPanit.reset();
-        mPanit.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPanit.setColor(Color.DKGRAY);
-        canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, 80, mPanit);
+        mPaint.reset();
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.DKGRAY);
+        canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, 80, mPaint);
 
-        mPanit.reset();
-        mPanit.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPanit.setShader(mShader);
-        mPanit.setStyle(Paint.Style.STROKE);
-        mPanit.setStrokeWidth(40);
-        mPanit.setStrokeCap(Paint.Cap.ROUND);
-        canvas.drawArc(rectF, 140, currentDegree, false, mPanit);
+        mPaint.reset();
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setShader(mShader);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(40);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        canvas.drawArc(rectF, 140, currentDegree, false, mPaint);
 
-        mPanit.reset();
-        mPanit.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPanit.setColor(Color.parseColor("#ffde5669"));
-        mPanit.setTextSize(70);
-        canvas.drawText(String.valueOf(currentNum), getMeasuredWidth() / 2 - 55, getMeasuredHeight() / 2 + 25, mPanit);
+        mPaint.reset();
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.parseColor("#ffde5669"));
+        mPaint.setTextSize(70);
+        canvas.drawText(String.valueOf(currentNum), getMeasuredWidth() / 2 - 55, getMeasuredHeight() / 2 + 25, mPaint);
     }
 }
