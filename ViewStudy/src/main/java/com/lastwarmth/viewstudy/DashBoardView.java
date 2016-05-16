@@ -22,10 +22,10 @@ public class DashboardView extends View {
     private RectF rectF;
     private Shader mShader;
 
-    private int targetDegree;
-    private int currentDegree;
-    private int currentNum;
-    private int targetNum;
+    private int targetDegree; // 目标角度
+    private int currentDegree; // 当前角度
+    private int currentNum; // 当前数值
+    private int targetNum; // 目标数值
 
     public DashboardView(Context context) {
         super(context);
@@ -45,9 +45,13 @@ public class DashboardView extends View {
     private void init() {
         mPaint = new Paint();
         rectF = new RectF();
+        // 颜色渐变的shader
         mShader = new RadialGradient(0, 0, (1080 - 300) / 2, 0xffde5669, 0xffe79950, Shader.TileMode.MIRROR);
     }
 
+    /**
+     * 通过Handler发送消息，改变变量，重绘View
+     */
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -72,6 +76,7 @@ public class DashboardView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        // 画大圆弧灰色背景
         mPaint.reset();
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.GRAY);
@@ -84,6 +89,7 @@ public class DashboardView extends View {
         rectF.bottom = getMeasuredHeight() / 2 + getMeasuredWidth() / 4;
         canvas.drawArc(rectF, 140, 260, false, mPaint);
 
+        // 通过旋转画布画指针刻度
         mPaint.reset();
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.GRAY);
@@ -96,11 +102,13 @@ public class DashboardView extends View {
         }
         canvas.rotate(130, getWidth() / 2, getHeight() / 2);
 
+        // 画中间的小圆
         mPaint.reset();
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.DKGRAY);
         canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, 80, mPaint);
 
+        // 画带颜色的进度条
         mPaint.reset();
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setShader(mShader);
@@ -109,6 +117,7 @@ public class DashboardView extends View {
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         canvas.drawArc(rectF, 140, currentDegree, false, mPaint);
 
+        // 画Text
         mPaint.reset();
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.parseColor("#ffde5669"));
