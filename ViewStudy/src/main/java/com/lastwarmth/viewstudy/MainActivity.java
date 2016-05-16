@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,17 +45,17 @@ public class MainActivity extends AppCompatActivity {
 //                animator.start();
             }
         });
-        final TextView textView = (TextView) findViewById(R.id.seek_bar_progress);
-        CustomArcSeekBar seekBar = (CustomArcSeekBar) findViewById(R.id.seek_bar);
-        seekBar.setListener(new CustomArcSeekBar.OnProgressChangedListener() {
-            @Override
-            public void OnProgressChanged(int level) {
-                textView.setText(String.valueOf(level));
-            }
-        });
+//        final TextView textView = (TextView) findViewById(R.id.seek_bar_progress);
+//        CustomArcSeekBar seekBar = (CustomArcSeekBar) findViewById(R.id.seek_bar);
+//        seekBar.setListener(new CustomArcSeekBar.OnProgressChangedListener() {
+//            @Override
+//            public void OnProgressChanged(int level) {
+//                textView.setText(String.valueOf(level));
+//            }
+//        });
 
-//        DashboardView view = (DashboardView) findViewById(R.id.dashboard_view);
-//        view.setNum(350);
+        DashboardView view = (DashboardView) findViewById(R.id.dashboard_view);
+        view.setNum(350);
 
 //        RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent);
 //        LayoutInflater inflater = LayoutInflater.from(this);
