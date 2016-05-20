@@ -4,9 +4,16 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.io.IOException;
+
+import pl.droidsonroids.gif.AnimationListener;
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,10 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
 //                AnimatorSet set = new AnimatorSet();
@@ -43,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 //                animator.setDuration(200);
 //                animator.setTarget(imageView);
 //                animator.start();
-            }
-        });
+
 //        final TextView textView = (TextView) findViewById(R.id.seek_bar_progress);
 //        CustomArcSeekBar seekBar = (CustomArcSeekBar) findViewById(R.id.seek_bar);
 //        seekBar.setListener(new CustomArcSeekBar.OnProgressChangedListener() {
@@ -54,9 +57,34 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        DashboardView view = (DashboardView) findViewById(R.id.dashboard_view);
-        view.setNum(350);
+//        DashboardView view = (DashboardView) findViewById(R.id.dashboard_view);
+//        view.setNum(350);
+        GifImageView gif = (GifImageView) findViewById(R.id.gif);
+        GifDrawable drawable = null;
+        try {
+            drawable = new GifDrawable(getAssets(), "anim.gif");
+            final GifDrawable finalDrawable = drawable;
+            drawable.addAnimationListener(new AnimationListener() {
+                @Override
+                public void onAnimationCompleted(int loopNumber) {
+                    Log.e("TAG", "complete");
+                    finalDrawable.stop();
+                    finalDrawable.recycle();
+                }
+            });
+            gif.setImageDrawable(drawable);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final GifDrawable finalDrawable = drawable;
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                finalDrawable.start();
+            }
+        });
 //        RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent);
 //        LayoutInflater inflater = LayoutInflater.from(this);
 //        View button = inflater.inflate(R.layout.button_layout, parent, false);
