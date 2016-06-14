@@ -1,4 +1,4 @@
-include ':AnimationStudy', ':ViewStudy', ':ListViewStudy', ':ListViewDemo', ':TouchEventStudy', ':OKHttpStudy', ':NinePatchStudy', ':ServiceStudy', ':FragmentStudy', ':AsyncMessageStudy', ':HybridApp', ':MediaPlayerStudy', ':NewWidgetStudy', ':ViewPagerDemo', ':ViewDragHelper', ':RecyclerViewStudy', ':KotlinDemo', ':ExpandableListViewStudy', ':videoviewstudy'
+include ':AnimationStudy', ':ViewStudy', ':ListViewStudy', ':ListViewDemo', ':TouchEventStudy', ':OKHttpStudy', ':NinePatchStudy', ':ServiceStudy', ':FragmentStudy', ':AsyncMessageStudy', ':HybridApp', ':MediaPlayerStudy', ':NewWidgetStudy', ':ViewPagerDemo', ':ViewDragHelper', ':RecyclerViewStudy', ':KotlinDemo', ':ExpandableListViewStudy', ':videoviewstudy', ':aigeviewstudy'
 include ':library'
 include ':IndicatorDemo'
 include ':amm_sdk_sample'
