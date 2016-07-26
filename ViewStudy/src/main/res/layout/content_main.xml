@@ -56,13 +56,17 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent" />-->
 
-    <com.lastwarmth.viewstudy.StaticGiftView
-        android:id="@+id/static_gift_view"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="X 1" />
+    <!--<com.lastwarmth.viewstudy.StaticGiftView-->
+    <!--android:id="@+id/static_gift_view"-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:gravity="center"-->
+    <!--android:text="X 1" />-->
+
+    <com.lastwarmth.viewstudy.ShadeBackgroundView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

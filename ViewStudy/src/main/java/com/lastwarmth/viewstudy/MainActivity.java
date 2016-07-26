@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 //        adapter = new MyAdapter(this, 0, contentList);
 //        myListView.setAdapter(adapter);
 
-        StaticGiftView view = (StaticGiftView) findViewById(R.id.static_gift_view);
-        view.setNum(10);
+//        StaticGiftView view = (StaticGiftView) findViewById(R.id.static_gift_view);
+//        view.setNum(10);
     }
 
 //    private void initList() {
