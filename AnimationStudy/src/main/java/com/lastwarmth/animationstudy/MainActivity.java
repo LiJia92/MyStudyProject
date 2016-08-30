@@ -12,12 +12,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Date;
 
@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button stopBtn;
     @Bind(R.id.start_property)
     Button startProperty;
+
+    private long oldData;
+    private long oldTime;
+
+
+    private ViewGroup.LayoutParams layoutParams;
+    private int width;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,7 +158,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 view.clearAnimation();
                 break;
             case R.id.tv_show:
-                Toast.makeText(this, "Hello!", Toast.LENGTH_SHORT).show();
+//                long nowTime = System.currentTimeMillis();
+//                long nowData = TrafficStats.getTotalRxBytes();
+//                long speed = (nowData - oldData) / (nowTime - oldTime) / 1024;
+//                oldData = nowData;
+//                oldTime = nowTime;
+//                Toast.makeText(this, "Hello! " + speed + "kb/s", Toast.LENGTH_SHORT).show();
+
+
+//                Intent dialog = new Intent(this, ForbidDialog.class);
+//                startActivity(dialog);
+
+                ForbidDialog dialog = new ForbidDialog(this);
+                dialog.show();
+                dialog.setCanceledOnTouchOutside(true);
+
+//                View convertView = LayoutInflater.from(this).inflate(R.layout.dialog_forbid, null);
+//                PopupWindow popupWindow = new PopupWindow(convertView, 600, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+//                popupWindow.setTouchable(true);
+//                popupWindow.setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
+//                LinearLayout follow = (LinearLayout) convertView.findViewById(R.id.fans_profile_follow_tab);
+//                LinearLayout album = (LinearLayout) convertView.findViewById(R.id.fans_profile_album_tab);
+//                final LinearLayout scaleLayout = (LinearLayout) convertView.findViewById(R.id.fans_profile_scale_layout);
+//                follow.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        layoutParams = scaleLayout.getLayoutParams();
+//                        if (width == 0) {
+//                            width = layoutParams.width;
+//                        }
+//                        ValueAnimator objectAnimator = ValueAnimator.ofInt(width, 0);
+//                        objectAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                            @Override
+//                            public void onAnimationUpdate(ValueAnimator animation) {
+//                                layoutParams.width = (int) animation.getAnimatedValue();
+//                                layoutParams.height = (int) animation.getAnimatedValue();
+//                                scaleLayout.setLayoutParams(layoutParams);
+//                            }
+//                        });
+//                        AnimatorSet set = new AnimatorSet();
+//                        set.setInterpolator(new LinearInterpolator());
+//                        set.setDuration(400);
+//                        set.play(objectAnimator);
+//                        set.start();
+//                    }
+//                });
+//
+//                album.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        ValueAnimator objectAnimator = ValueAnimator.ofInt(0, width);
+//                        objectAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                            @Override
+//                            public void onAnimationUpdate(ValueAnimator animation) {
+//                                layoutParams.width = (int) animation.getAnimatedValue();
+//                                layoutParams.height = (int) animation.getAnimatedValue();
+//                                scaleLayout.setLayoutParams(layoutParams);
+//                            }
+//                        });
+//                        AnimatorSet set = new AnimatorSet();
+//                        set.setInterpolator(new LinearInterpolator());
+//                        set.setDuration(400);
+//                        set.play(objectAnimator);
+//                        set.start();
+//                    }
+//                });
+//                popupWindow.showAtLocation(follow, Gravity.CENTER, 0, 0);
         }
     }
 }
