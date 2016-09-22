@@ -66,10 +66,14 @@
     <!--android:text="X 1" />-->
 
     <!--<com.lastwarmth.viewstudy.ShadeBackgroundView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
 
-    <com.lastwarmth.viewstudy.SkewView
+    <!--<com.lastwarmth.viewstudy.SkewView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+
+    <com.lastwarmth.viewstudy.Bezier3
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
