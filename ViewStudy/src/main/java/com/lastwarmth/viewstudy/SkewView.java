@@ -2,8 +2,8 @@ package com.lastwarmth.viewstudy;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
@@ -26,6 +26,7 @@ public class SkewView extends View {
         super(context, attrs);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setAntiAlias(true);
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
     @Override
@@ -40,15 +41,54 @@ public class SkewView extends View {
         super.onDraw(canvas);
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
+        Path path = new Path();                     // 创建Path
 
-        RectF rect = new RectF(0, 0, 200, 200);   // 矩形区域
+        // 错切
+//        RectF rect = new RectF(0, 0, 200, 200);   // 矩形区域
+//
+//        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+//        canvas.drawRect(rect, mPaint);
+//
+//        canvas.skew(-1, 0);                       // 水平错切 <- 45度
+//
+//        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+//        canvas.drawRect(rect, mPaint);
 
-        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
-        canvas.drawRect(rect, mPaint);
+//      // setLastPoint
+//        path.lineTo(200, 200);                      // lineTo
+//
+//        path.setLastPoint(200,100);                 // setLastPoint
+//
+//        path.lineTo(200,0);                         // lineTo
+//
+//        canvas.drawPath(path, mPaint);              // 绘制Path
 
-        canvas.skew(-1, 0);                       // 水平错切 <- 45度
+        // close
+//        path.lineTo(200, 200);                      // lineTo
+//
+//        path.moveTo(200,100);                       // moveTo
+//
+//        path.lineTo(200,0);                         // lineTo
+//
+//        path.close();
+//
+//        canvas.drawPath(path, mPaint);              // 绘制Path
 
-        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
-        canvas.drawRect(rect, mPaint);
+        // Direction CCW逆时针 CW顺时针
+//        path.addRect(-200, -200, 200, 200, Path.Direction.CCW);
+//
+//        path.setLastPoint(-300, 300);                // <-- 重置最后一个点的位置
+//
+//        canvas.drawPath(path, mPaint);
+
+        canvas.scale(1, -1);
+        path.lineTo(100, 100);
+
+        RectF oval = new RectF(0, 0, 300, 300);
+
+//        path.addArc(oval, 0, 270);
+        path.arcTo(oval, 0, 270, true);             // <-- 和上面一句作用等价
+
+        canvas.drawPath(path, mPaint);
     }
 }
