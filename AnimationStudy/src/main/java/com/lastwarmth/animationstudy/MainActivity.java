@@ -169,9 +169,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                Intent dialog = new Intent(this, ForbidDialog.class);
 //                startActivity(dialog);
 
-                ForbidDialog dialog = new ForbidDialog(this);
-                dialog.show();
-                dialog.setCanceledOnTouchOutside(true);
+//                ForbidDialog dialog = new ForbidDialog(this);
+//                dialog.show();
+//                dialog.setCanceledOnTouchOutside(true);
 
 //                View convertView = LayoutInflater.from(this).inflate(R.layout.dialog_forbid, null);
 //                PopupWindow popupWindow = new PopupWindow(convertView, 600, ViewGroup.LayoutParams.WRAP_CONTENT, true);
