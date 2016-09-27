@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="http://schemas.android.com/tools">
-
-    <string name="app_name">ViewPageIndicator</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-    <string name="info">开发者<xliff:g id="name">%1$10s</xliff:g>来自<xliff:g id="company">%2$5s</xliff:g>公司</string>
-
-</resources>
